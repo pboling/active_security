@@ -15,6 +15,15 @@ and post a message to the [gitter chat][🏘chat].
 BUNDLE_GEMFILE=gemfiles/vanilla.gemfile appraisal generate
 ```
 
+NOTE: Due to a bug in Appraisal, in each generated gemfile, you'll need to replace this line:
+```ruby
+gemspec path: "../../"
+```
+with
+```ruby
+gemspec path: "../"
+```
+
 ## Release
 
 To release a new version:
