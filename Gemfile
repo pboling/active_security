@@ -23,7 +23,7 @@ gem "sqlite3", "~> 1.7"
 gem "kettle-soup-cover", "~> 1.0", ">= 1.0.2"
 
 # Linting
-gem "rubocop-lts", "~> 14.1", ">= 14.1.1" # Linting for Ruby >= 2.5
+gem "rubocop-lts", "~> 18.2", ">= 18.2.1" # Linting for Ruby >= 2.7
 gem "rubocop-packaging", "~> 0.5", ">= 0.5.2"
 gem "rubocop-rspec", "~> 2.10"
 
