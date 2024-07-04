@@ -31,6 +31,14 @@ module ActiveSecurity
 
     def _active_security_check_predicates_for_scope(predicates, scope_column)
       predicates.detect do |predicate|
+        # Consider alternative...
+        # comp =
+        #   case predicate
+        #   when Arel::Nodes::HomogeneousIn
+        #     predicate.attribute.name
+        #   when Arel::Nodes::Equality
+        #     predicate.right.name
+        #   end
         comp =
           if predicate.respond_to?(:attribute) && predicate.attribute.respond_to?(:name)
             # Handles Arel::Nodes::HomogeneousIn
