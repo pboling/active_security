@@ -7,6 +7,14 @@ the [code of conduct][🤝conduct].
 To submit a patch, please fork the project and create a patch with tests. Once you're happy with it send a pull request
 and post a message to the [gitter chat][🏘chat].
 
+## Appraisal & Combustion
+
+### Generate a new set of Appraisal gemfiles:
+
+```sh
+BUNDLE_GEMFILE=gemfiles/vanilla.gemfile appraisal generate
+```
+
 ## Release
 
 To release a new version:
@@ -25,9 +33,9 @@ To release a new version:
    c. Note that you'll need the `zsh/datetime` module, if running `zsh`.
 9. Run `bundle exec rake build`
 10. Run [`bin/checksums`][🔒️rubygems-checksums-pr] to create SHA-256 and SHA-512 checksums
-   a. Checksums will be committed automatically by the script, but not pushed
+    a. Checksums will be committed automatically by the script, but not pushed
 11. Run `bundle exec rake release` which will create a git tag for the version,
-   push git commits and tags, and push the `.gem` file to [rubygems.org][💎rubygems]
+    push git commits and tags, and push the `.gem` file to [rubygems.org][💎rubygems]
 
 NOTE: You will need to have a public key in `certs/`, and list your cert in the
 `gemspec`, in order to sign the new release.
@@ -40,7 +48,7 @@ See: [RubyGems Security Guide][🔒️rubygems-security-guide]
 Made with [contributors-img][🖐contrib-rocks].
 
 [🧪build]: https://github.com/pboling/active_security/actions
-[🏘chat]: https://matrix.to/#/%23pboling_active_security:gitter.im
+[🏘chat]: https://matrix.to/#/#pboling_active_security:gitter.im
 [🤝conduct]: https://github.com/pboling/active_security/blob/main/CODE_OF_CONDUCT.md
 [🖐contrib-rocks]: https://contrib.rocks
 [🖐contributors]: https://github.com/pboling/active_security/graphs/contributors

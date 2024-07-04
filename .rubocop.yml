@@ -1,8 +1,11 @@
-AllCops:
-  TargetRubyVersion: 3.0
+inherit_gem:
+  rubocop-lts: config/rubygem_rspec.yml
 
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
+RSpec/InstanceVariable:
+  Enabled: false
 
-Style/StringLiteralsInInterpolation:
-  EnforcedStyle: double_quotes
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: false
