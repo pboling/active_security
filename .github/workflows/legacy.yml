@@ -1,4 +1,4 @@
-name: Rails 5.2, 6.x, 7.x on EOL Ruby 2.5 - 3.0
+name: Rails 7.0, 7.1 on EOL Ruby 2.7 - 3.0
 
 on:
   push:
