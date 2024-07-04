@@ -66,5 +66,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("rspec-block_is_expected", "~> 1.0", ">= 1.0.5")
   spec.add_development_dependency("rspec-pending_for", "~> 0.1", ">= 0.1.16")
   spec.add_development_dependency("silent_stream", "~> 1.0", ">= 1.0.8")
-  spec.add_development_dependency("sqlite3", ">= 1.6.9")
+  spec.add_development_dependency("sqlite3", ">= 1.6.9", "< 2")
 end
