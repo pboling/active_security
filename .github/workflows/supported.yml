@@ -71,12 +71,6 @@ jobs:
             bundler: latest
             gemfile: vanilla
             rails: "7.0"
-          - ruby: "3.1"
-            appraisal: "rails-6-1"
-            rubygems: latest
-            bundler: latest
-            gemfile: vanilla
-            rails: "6.1"
           - ruby: "truffleruby"
             appraisal: "rails-7-1"
             rubygems: latest
