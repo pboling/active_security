@@ -1,0 +1,20 @@
+{
+  "README.md:458636223": [
+    [197, 19, 7, "Style/HashSyntax: Use the new Ruby 1.9 hash syntax.", 598904959],
+    [264, 1, 28, "Style/GlobalVars: Do not introduce global variables.", 72686272],
+    [264, 32, 8, "Style/Proc: Use `proc` instead of `Proc.new`.", 2994898041],
+    [265, 3, 19, "Style/MethodCallWithArgsParentheses: Use parentheses for method calls with arguments.", 2711236921],
+    [270, 19, 1, "Lint/AmbiguousOperator: Ambiguous block operator. Parenthesize the method arguments if it's surely a block operator, or add a whitespace to the right of the `&` if it should be a binary AND.", 177539],
+    [270, 20, 28, "Style/GlobalVars: Do not introduce global variables.", 72686272],
+    [275, 19, 1, "Lint/AmbiguousOperator: Ambiguous block operator. Parenthesize the method arguments if it's surely a block operator, or add a whitespace to the right of the `&` if it should be a binary AND.", 177539],
+    [275, 20, 28, "Style/GlobalVars: Do not introduce global variables.", 72686272],
+    [283, 3, 49, "Style/MethodCallWithArgsParentheses: Use parentheses for method calls with arguments.", 3325023453],
+    [312, 5, 14, "Style/TrailingCommaInHashLiteral: Put a comma after the last item of a multiline hash.", 4237294114],
+    [333, 5, 18, "Style/MethodCallWithArgsParentheses: Use parentheses for method calls with arguments.", 2390809558],
+    [342, 5, 18, "Style/MethodCallWithArgsParentheses: Use parentheses for method calls with arguments.", 2390809558],
+    [357, 3, 19, "Style/MethodCallWithArgsParentheses: Use parentheses for method calls with arguments.", 2711236921],
+    [358, 3, 583, "Style/MethodCallWithArgsParentheses: Use parentheses for method calls with arguments.", 2147519112],
+    [359, 5, 389, "Style/ClassMethodsDefinitions: Use `class << self` to define a class method.", 420458515],
+    [365, 81, 2, "Style/RedundantConstantBase: Remove redundant `::`.", 5859653]
+  ]
+}
