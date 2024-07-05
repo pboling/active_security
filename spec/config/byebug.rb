@@ -1,4 +1,5 @@
-# Ruby 2.4+
-# require "byebug" if ENV.fetch("DEBUG", "false").casecmp?("true")
-# Ruby >= 2.3
-require "byebug" if ENV.fetch("DEBUG", "false") == "true"
+begin
+  require "byebug" if ENV.fetch("DEBUG", "false").casecmp?("true")
+rescue LoadError
+  # byebug is only available in local development
+end

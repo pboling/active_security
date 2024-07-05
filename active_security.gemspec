@@ -52,19 +52,34 @@ Gem::Specification.new do |spec|
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
 
-  spec.add_dependency("activerecord", ">= 5.2")
-  spec.add_dependency("activesupport", ">= 5.2")
+  spec.add_dependency("activerecord", ">= 7.0")
+  spec.add_dependency("activesupport", ">= 7.0")
   spec.add_dependency("version_gem", "~> 1.1", ">= 1.1.4")
 
   # Development Dependencies
+  spec.add_development_dependency("rake", ">= 13")
+
+  # Testing
   spec.add_development_dependency("anonymous_active_record", "~> 1.0", ">= 1.0.8")
   spec.add_development_dependency("appraisal", "~> 2.5")
-  spec.add_development_dependency("json", ">= 1.7.7")
-  spec.add_development_dependency("rake", ">= 0.8.7")
-  spec.add_development_dependency("rdoc", ">= 3")
   spec.add_development_dependency("rspec", ">= 3")
   spec.add_development_dependency("rspec-block_is_expected", "~> 1.0", ">= 1.0.5")
   spec.add_development_dependency("rspec-pending_for", "~> 0.1", ">= 0.1.16")
   spec.add_development_dependency("silent_stream", "~> 1.0", ">= 1.0.8")
   spec.add_development_dependency("sqlite3", ">= 1.6.9", "< 2")
+
+  # Coverage
+  spec.add_development_dependency("kettle-soup-cover", "~> 1.0", ">= 1.0.2")
+
+  # Linting
+  spec.add_development_dependency("rubocop-lts", "~> 18.2", ">= 18.2.1") # Linting for Ruby >= 2.7
+  spec.add_development_dependency("rubocop-packaging", "~> 0.5", ">= 0.5.2")
+  spec.add_development_dependency("rubocop-rspec", "~> 2.10")
+
+  # Quality
+  spec.add_development_dependency("reek", "~> 6.3")
+
+  # Documentation
+  spec.add_development_dependency("yard", "~> 0.9", ">= 0.9.34")
+  spec.add_development_dependency("yard-junk", "~> 0.0")
 end
