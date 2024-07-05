@@ -8,7 +8,7 @@ module ActiveSecurity
       return active_security_config.on_restricted_no_scope.call(active_security_config) if active_security_config.on_restricted_no_scope.respond_to?(:call)
 
       unless VALID_CONFIG_VALUES.include?(active_security_config.on_restricted_no_scope)
-        raise InvalidConfig, "on_restricted_no_scope must either be set to a (callable lambda/proc) or one of [:log, :log_and_raise, :raise]"
+        raise InvalidConfig, "on_restricted_no_scope must either be set to a callable lambda/proc or one of [:log, :log_and_raise, :raise]"
       end
 
       if /log/.match?(active_security_config.on_restricted_no_scope)
@@ -24,7 +24,7 @@ module ActiveSecurity
       return active_security_config.on_restricted_unhandled_predicate.call(active_security_config) if active_security_config.on_restricted_unhandled_predicate.respond_to?(:call)
 
       unless VALID_CONFIG_VALUES.include?(active_security_config.on_restricted_unhandled_predicate)
-        raise InvalidConfig, "on_restricted_unhandled_predicate must either be set to a (callable lambda/proc) or one of [:log, :log_and_raise, :raise]"
+        raise InvalidConfig, "on_restricted_unhandled_predicate must either be set to a callable lambda/proc or one of [:log, :log_and_raise, :raise]"
       end
 
       if /log/.match?(active_security_config.on_restricted_unhandled_predicate)

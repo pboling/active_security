@@ -10,7 +10,7 @@ module ActiveSecurity
   #
   #     class Foo < ActiveRecord::Base
   #       include ActiveSecurity
-  #       active_security :use => [:finders, :scoped], scope: :bar_id
+  #       active_security :use => {finders: {default_finders: :restricted}, {scoped: {scope: :bar_id}}
   #     end
   #
   # The most important option is `:use`, which you use to tell ActiveSecurity which
@@ -153,15 +153,38 @@ module ActiveSecurity
     #       }
     #     end
     #
-    #
-    # @option options [Symbol,Module] :use The addon or name of an addon to use.
+    # @option options [Symbol, Module] :use The addon or name of an addon to use.
     #   By default, ActiveSecurity provides {ActiveSecurity::Finders :finders},
     #   {ActiveSecurity::Restricted :restricted}, {ActiveSecurity::Privileged :privileged},
-    #   and {ActiveSecurity::Scoped :scoped}.
+    #   and {ActiveSecurity::Scoped :scoped}, or a hash where the keys are the symbolized
+    #   module names just mentioned, and the values are hashes of options to set for each
+    #   module.
     #
-    # @option options [Symbol] :scope Available when using `:scoped`.
-    #   Sets the relation or column which will be considered a required scope.
+    # @option options [Symbol, Array[Symbol]] :scope Available when using `:scoped`.
+    #   Sets the relation(s) or column(s) which will be considered a required scope.
     #   This option has no default value.
+    #
+    # @option options [Symbol] :default_finders Available when using `:finders`.
+    #   Sets the type of scope enforcement to use. Must be one of :restricted or
+    #   :privileged. Default value is :restricted.
+    #
+    # @option options [Module] :privileged_hooks Available when using `:privileged`.
+    #   Sets the Module which defines the necessary hooks for the Privileged behavior.
+    #   Default value is {ActiveSecurity::PrivilegedHooks}
+    #
+    # @option options [Module] :restricted_hooks Available when using `:restricted`.
+    #   Sets the Module which defines the necessary hooks for the Restricted behavior.
+    #   Default value is {ActiveSecurity::RestrictedHooks}
+    #
+    # @option options [Symbol, #call] :on_restricted_no_scope Available when using `:restricted`.
+    #   Sets the Restricted behavior when the expected scope is not found. Must be one of
+    #   the following [#call, :log, :log_and_raise, :raise].
+    #   Default value is :log_and_raise.
+    #
+    # @option options [Symbol, #call] :on_restricted_unhandled_predicate Available when using `:restricted`.
+    #   Sets the Restricted behavior when the scopes Arel Node has no defined handling. Must be one of
+    #   the following [#call, :log, :log_and_raise, :raise].
+    #   Default value is :log_and_raise.
     #
     # @yield Provides access to the model class's active_security_config, which
     #   allows an alternate configuration syntax, and conditional configuration
