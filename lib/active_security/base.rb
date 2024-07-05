@@ -10,7 +10,7 @@ module ActiveSecurity
   #
   #     class Foo < ActiveRecord::Base
   #       include ActiveSecurity
-  #       active_security :use => {finders: {default_finders: :restricted}, {scoped: {scope: :bar_id}}
+  #       active_security :use => {finders: {default_finders: :restricted}, scoped: {scope: :bar_id}}
   #     end
   #
   # The most important option is `:use`, which you use to tell ActiveSecurity which
@@ -22,9 +22,12 @@ module ActiveSecurity
   # *all classes that participate in STI, both your parent classes and their*
   # *children.*
   #
-  # ### The Default Setup: Simple Models
+  # ### The Basic Setup: Simple Models
   #
-  # The simplest way to use ActiveSecurity is to have it ensure that finds are executed within a scope:
+  # By default the `:restricted` plugin is the only one configured, and the `restricted`
+  # scope must be explicitly added to every query.
+  # This is the simplest way to use ActiveSecurity.  But it is messy, and laborious.
+  # It will ensure that finds are executed within a `where` scope:
   #
   #     class User < ActiveRecord::Base
   #       extend ActiveSecurity
@@ -33,7 +36,7 @@ module ActiveSecurity
   #     User.restricted.find(1)             # blows up, because no scope
   #     User.where(...).restricted.find(1)  # returns the user
   #
-  # ### The Strict Setup: Simple Models
+  # ### The Strict Setup: Magic Finders
   #
   # The problem with the above approach is that a naked find (`User.find(1)`)
   # still works, and is just as insecure as before. The `:finders` plugin fixes
@@ -44,8 +47,9 @@ module ActiveSecurity
   #       active_security use: {finders: {default_finders: :restricted}}
   #     end
   #
-  #     User.find(1)             # blows up, because no scope
-  #     User.where(...).find(1)  # returns the user
+  #     User.find(1)                        # blows up, because no scope
+  #     User.where(...).find(1)             # returns the user
+  #     User.where(...).restricted.find(1)  # also returns the user
   #
   # @guide end
   module Base
@@ -99,7 +103,24 @@ module ActiveSecurity
     # ### Order Method Calls in a Block vs Ordering Options
     #
     # When calling this method without a block, you may set the hash options in
-    # any order.
+    # any order, so long as they either have no dependencies, or are coupled with
+    # their respective module.
+    #
+    # Here's an example that configures every plugin:
+    #
+    #     class Person < ActiveRecord::Base
+    #       active_security use: {
+    #         finders: {default_finders: :restricted},
+    #         scoped: {scope: :name},
+    #         privileged: {}
+    #       }
+    #     end
+    #
+    #     Person.find(1)                                 # blows up, because no scope
+    #     Person.where(name: "Bart").find(1)             # returns the person
+    #     Person.where(age: 29).find(1)                  # blows up, because name scope wasn't used
+    #     Person.where(age: 29).privileged.find(1)       # returns the person, because privileged
+    #     Person.where(name: "Bart").restricted.find(1)  # also returns the person, because name scope used
     #
     # However, when using block-style invocation, be sure to call
     # ActiveSecurity::Configuration's {ActiveSecurity::Configuration#use use} method
@@ -128,8 +149,8 @@ module ActiveSecurity
     # Because :use can accept a name or a Module, {ActiveSecurity.defaults defaults}
     # can be a convenient place to set up behavior common to all classes using
     # ActiveSecurity. You can include any module, or more conveniently, define one
-    # on-the-fly. For example, let's say you want to override the error that is
-    # raised when no scope is used:
+    # on-the-fly. For example, let's say you want to globally override the error
+    # that is raised when no scope is used:
     #
     #     ActiveSecurity.defaults do |config|
     #       config.use :finders

@@ -22,7 +22,7 @@ module ActiveSecurity
   #
   #       scope :active, -> {where(active: true)}
   #
-  #       active_security use: [:finders]
+  #       active_security use: :finders
   #     end
   #
   #     Restaurant.restricted.find(23)          #=> blows up, because no scope!
