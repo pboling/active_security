@@ -49,6 +49,10 @@ NOTE: You will need to have a public key in `certs/`, and list your cert in the
 `gemspec`, in order to sign the new release.
 See: [RubyGems Security Guide][🔒️rubygems-security-guide]
 
+## Honorable Mentions
+
+This gem is *heavily based* on the venerable [`friendly_id`](https://github.com/norman/friendly_id).
+
 ## Contributors
 
 [![Contributors][🖐contributors-img]][🖐contributors]
