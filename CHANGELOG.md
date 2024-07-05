@@ -10,11 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 ### Removed
 
-## [1.0.1] - 2024-07-05
+## [1.0.1] - 2024-07-05 ([tag][1.0.1t])
 ### Added
 - Documentation
 
-## [1.0.0] - 2024-07-05
+## [1.0.0] - 2024-07-05 ([tag][1.0.0t])
 ### Added
 - Initial release
 
