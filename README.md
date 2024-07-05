@@ -233,7 +233,7 @@ the [Pessimistic Version Constraint][📌pvc] with two digits of precision.
 For example:
 
 ```ruby
-spec.add_dependency "active_security", "~> 1.0"
+spec.add_dependency("active_security", "~> 1.0")
 ```
 
 [comment]: <> ( 📌 VERSIONING LINKS )
