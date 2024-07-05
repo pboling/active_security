@@ -76,9 +76,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("rubocop-packaging", "~> 0.5", ">= 0.5.2")
   spec.add_development_dependency("rubocop-rspec", "~> 2.10")
 
-  # Quality
-  spec.add_development_dependency("reek", "~> 6.3")
-
   # Documentation
   spec.add_development_dependency("yard", "~> 0.9", ">= 0.9.34")
   spec.add_development_dependency("yard-junk", "~> 0.0")

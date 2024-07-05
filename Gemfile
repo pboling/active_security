@@ -15,3 +15,7 @@ platform :mri do
   # Debugging
   gem "byebug", ">= 11"
 end
+
+# Quality
+# >= Ruby 3.0
+gem "reek", "~> 6.3"
